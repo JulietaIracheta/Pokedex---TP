@@ -15,24 +15,22 @@ echo "<table>
               <tr>
                 <td class='nombre'>Nombre</td>
                 <td class='tipo'>Tipo</td>
-                <td class='imagen'>Imagen</td>
-                <td class='editar'>Editar</td>
-                <td class='borrar'>Borrar</td>
+             
               </tr>";
 
 while($i < count($lista)) {
-    if(empty($lista[$i][3])){
+    if(empty($lista[$i][4])){
         $img="";
     }
     else{
-        $img="<img src='uploads/".$lista[$i][2]."' width='42'>";
+        $img="<img src='uploads/".$lista[$i][4]."' width='42'>";
     }
 
     echo "<tr>
                 <td align='center'>".$lista[$i][1]."</td>
                 <td style='padding-left: 10px'>".$lista[$i][3]."</td>
-                <td align='center'><a href='modificar.php?id=".$lista[$i][0]."'><img src='img/editar.png'></a></td>
-                <td align='center'><a href='eliminar.php?id=".$lista[$i][0]."'><img src='img/borrar.pg'></a></td>
+                <td align='center'><a href='modificar.php?id=".$lista[$i][0]."'>Modificar</a></td>
+                <td align='center'><a href='baja.php?id=".$lista[$i][0]."'>Borrar</a></td>
               </tr>";
     $i++;
 }
@@ -40,3 +38,17 @@ echo "</table>";
 ?>
 
 <button onclick="location.href='salir.php'">Salir</button>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+
+</body>
+</html>
