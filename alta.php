@@ -85,7 +85,7 @@ if (isset($_POST['enviar'])) {
 
     $fecha = date("d.m.y");
     //persiste en la BD
-    $sql= "INSERT INTO pokemones (nombre,tipo) VALUES ('$nombre','$tipo')";
+    $sql= "INSERT INTO noticias (fecha, imagen, titulo, desarrollo) VALUES ('".$fecha."','".basename( $_FILES['uploadedfile']['name'])."','$titulo','$desarrollo')";
     // $sql= "INSERT INTO noticias (fecha, imagen, titulo, nota) VALUES ('".$fecha."','".basename( $_FILES['uploadedfile']['name'])."','".$titulo."', '".$desarrollo."')";
     // $sql= "UPDATE noticias SET imagen='".basename( $_FILES['uploadedfile']['name'])."', titulo='$titulo', nota='$desarrollo' where id='$id'";
     $resultado = mysqli_query($conexion,$sql);

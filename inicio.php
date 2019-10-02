@@ -15,7 +15,7 @@ echo "<table>
               <tr>
                 <td class='nombre'>Nombre</td>
                 <td class='tipo'>Tipo</td>
-             
+                <td class='tipo'>Imagen</td>
               </tr>";
 
 while($i < count($lista)) {
@@ -29,6 +29,7 @@ while($i < count($lista)) {
     echo "<tr>
                 <td align='center'>".$lista[$i][1]."</td>
                 <td style='padding-left: 10px'>".$lista[$i][2]."</td>
+                 <td align='center'>".$lista[$i][3]."</td>
                 <td align='center'><a href='modificar.php?id=".$lista[$i][0]."'>Modificar</a></td>
                 <td align='center'><a href='baja.php?id=".$lista[$i][0]."'>Borrar</a></td>
               </tr>";

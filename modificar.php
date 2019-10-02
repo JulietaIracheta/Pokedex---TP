@@ -80,7 +80,7 @@ else if (isset($_POST['enviar'])){
         $add = "uploads/$file_name";
         if ($uploadedfileload == "true") {
 
-            if (move_uploaded_file($_FILES[uploadedfile][tmp_name], $add)) {
+            if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $add)) {
                 echo "El archivo ".  basename( $_FILES['uploadedfile']['name']).
                     " ha sido subido";
                 echo " Ha sido subido satisfactoriamente";
@@ -96,7 +96,7 @@ else if (isset($_POST['enviar'])){
         //persiste en la BD
         /*$sql = "SELECT * FROM noticias WHERE id = '$id'";
         $resultado = mysqli_query($conexion, $sql);*/
-        $sql= "UPDATE noticias SET imagen='".basename( $_FILES['uploadedfile']['name'])."', titulo='$nombre', nota='$tipo' where id='$id'";
+        $sql= "UPDATE pokemones SET imagen='".basename( $_FILES['uploadedfile']['name'])."', nombre='$nombre', tipo='$tipo' where id='$id'";
         $resultado = mysqli_query($conexion,$sql);
         header('location:inicio.php');
         if(!$resultado){
