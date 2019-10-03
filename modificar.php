@@ -112,21 +112,30 @@ else if (isset($_POST['enviar'])){
 
 echo "<h2>$error</h2>";
 ?>
-<p class='descripcion'>Modificación de pokemones</p>
-<form method="POST" action="modificar.php" enctype="multipart/form-data">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div class="w3-container w3-blue">
+    <p><b><i><center><h1>Modificación de pokemones</h1></center></i></b></p>
+</div><br><br>
+
+
+
+<form class="w3-container" method="POST" action="modificar.php" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $registro['id']; ?>">
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" value="<?php echo $registro['nombre']; ?>">
+    <label for="nombre"><b><i>Nombre:</i></b></label>
+    <input class="w3-input" type="text" name="nombre" value="<?php echo $registro['nombre']; ?>">
     <br><br><br>
 
-    <label for="tipo">Tipo:</label>
-    <input type="text" name="tipo" value="<?php echo $registro['tipo']; ?>">
+    <label for="tipo"><b><i>Tipo:</i></b></label>
+    <input class="w3-input" type="text" name="tipo" value="<?php echo $registro['tipo']; ?>">
     <br><br><br>
 
 
-    <label for="imagen">Imagen:</label>
+    <label for="imagen"><b><i>Imagen:</i></b></label>
     <!--   <input class="input-group" type="file" name="user_image" accept="image/*" />   -->
-    <input name="uploadedfile" value=".$registro['imagen']." type="file" />
+    <input class="w3-input" name="uploadedfile" value=".$registro['imagen']." type="file" />
 
     <?php
     if(empty($registro['imagen'])){
@@ -138,6 +147,6 @@ echo "<h2>$error</h2>";
     }
     ?>
     <br>
-    <button type="submit" name="enviar">Guardar</button>
+    <center><button class="w3-btn w3-black" type="submit" name="enviar">Guardar</button></center>
 </form>
 

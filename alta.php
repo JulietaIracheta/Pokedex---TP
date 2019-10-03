@@ -61,19 +61,23 @@ echo "<h2>$error</h2>";
     <p><b><i><center><h1>Ingreso de pokemones</h1></center></i></b></p>
 </div>
 
-<form method="POST" action="alta.php" enctype="multipart/form-data">
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<br><br>
+
+<form class="w3-container" method="POST" action="alta.php" enctype="multipart/form-data">
+    <label for="nombre"><i><b>Nombre:</i></b></label>
+    <input class="w3-input" type="text" name="nombre">
     <br><br><br>
 
-    <label for="tipo">Tipo:</label>
-    <input type="text" name="tipo"/>
+    <label for="tipo"><i><b>Tipo:</i></b></label>
+    <input class="w3-input" type="text" name="tipo"/>
     <br><br><br>
 
-    <label for="imagen">Imagen:</label>
-    <input name="uploadedfile" type="file" />
+    <b for="imagen"><i><b>Imagen:</i></b></label>
+    <input class="w3-input" name="uploadedfile" type="file" />
     <div id="preview"></div>
 
     <br><br><br>
-    <button type="submit" name="enviar">Guardar</button>
+    <center><button class="w3-btn w3-black" type="submit" name="enviar">Guardar</button></center>
     </form>
