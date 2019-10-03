@@ -1,9 +1,7 @@
 <?php
 
 session_start();
-
-echo "<p class='descripcion'><center><h1><i>Panel de pokemones</i></h1></center></p>";
-
+echo "<p><center><h1 class=\"w3-container w3-blue\"><i>Panel de pokemones</i></h1></center></p><br>";
 $conexion = mysqli_connect("127.0.0.1","root","46598842","pokemons");
 
 $sql = "SELECT * FROM pokemones";
@@ -35,10 +33,12 @@ while($i < count($lista)) {
               </tr>";
     $i++;
 }
+
+
 echo "</table>";
 ?><br><br>
-<center><button class="w3-btn w3-black" type="submit" name="altapokemons"><a href='alta.php' >Ingresar nuevo pokemon</button></center><br>
-<center><button class="w3-btn w3-black"><a href='login.php' >Salir</button></center>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +49,14 @@ echo "</table>";
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
+<form method="post" action="buscar.php">
+    <input name="palabra" placeholder="Palabra">
+    <input type="submit" name="buscar" >
+</form>
+    <center><button class="w3-btn w3-black" type="submit" name="altapokemons"><a href='alta.php' >Ingresar nuevo pokemon</button></center><br>
+    <center><button class="w3-btn w3-black"><a href='login.php' >Salir</button></center>
+
+
 
 </body>
 </html>
