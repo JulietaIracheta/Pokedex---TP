@@ -26,7 +26,7 @@ if (isset($_POST['enviar'])) {
             header('location:inicio.php');
             exit();
         }else{
-            $error="Error al inicar sesion.2";
+            $error="Error al inicar sesión.";
         }
     }
 }
@@ -43,12 +43,12 @@ echo "<h2>$error</h2>";
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<body>
+<body background="pikachu.png">
 
 
 <div class="w3-card-4">
-    <div class="w3-container w3-pale-red">
-        <center> <h2>Iniciar sesión</h2></center>
+    <div class="w3-container w3-blue">
+        <center> <h2><b><i>Iniciar sesión</i></b></h2></center>
     </div>
     <center><form class="w3-container" method="post" action="login.php">
 
@@ -56,7 +56,7 @@ echo "<h2>$error</h2>";
             Password: <INPUT class="w3-input w3-border w3-sand" TYPE="password" NAME="password"><br><br>
 
 
-            <button class="w3-container w3-pale-red" type="submit" name="enviar">Iniciar sesión</button>
+            <center><button class="w3-btn w3-black" type="submit" name="enviar">Iniciar sesión</button></center>
 
 
         </form>

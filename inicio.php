@@ -38,7 +38,7 @@ while($i < count($lista)) {
 echo "</table>";
 ?><br><br>
 <center><button class="w3-btn w3-black" type="submit" name="altapokemons"><a href='alta.php' >Ingresar nuevo pokemon</button></center><br>
-<center><button class="w3-btn w3-black" onclick="location.href='salir.php'">Salir</button></center>
+<center><button class="w3-btn w3-black"><a href='login.php' >Salir</button></center>
 
 <!DOCTYPE html>
 <html lang="en">
