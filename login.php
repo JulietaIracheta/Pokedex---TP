@@ -52,8 +52,8 @@ echo "<h2>$error</h2>";
     </div>
     <center><form class="w3-container" method="post" action="login.php">
 
-            Usuario: <INPUT class="w3-input w3-border w3-sand" TYPE="text" NAME="usuario"> <br><br>
-            Password: <INPUT class="w3-input w3-border w3-sand" TYPE="password" NAME="password"><br><br>
+            Usuario: <INPUT class="w3-input w3-border w3-sand" TYPE="text" NAME="usuario" required> <br><br>
+            Password: <INPUT class="w3-input w3-border w3-sand" TYPE="password" NAME="password" required><br><br>
 
 
             <center><button class="w3-btn w3-black" type="submit" name="enviar">Iniciar sesión</button></center>
