@@ -1,28 +1,7 @@
 <link rel=StyleSheet href="apc.css" type="text/css" media=screen>
 <script src="/fydt/apc/tinymce/tinymce.min.js"></script>
-<script>
-    tinymce.init({
-        selector: '#mytextarea',
-        width: 600,
-        height: 300,
-        plugins: [
-            'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-            'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-            'save table directionality emoticons template paste'
-        ],
-        content_css: 'css/content.css',
-        toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
-        toolbar2: 'fontselect',
-        font_formats: 'Arial=arial,helvetica,sans-serif; Courier New=courier new,courier,monospace; AkrutiKndPadmini=Akpdmi-n'
 
-    });
 </script>
-
-<header>
-    <div class="superior">
-        <img src="img/logo.png">
-    </div>
-</header>
 
 <?php
 $error = "";
@@ -97,20 +76,20 @@ if (isset($_POST['enviar'])) {
 
 echo "<h2>$error</h2>";
 ?>
-<p class='descripcion'>Ingreso de noticias</p>
-<form method="POST" action="alta.php" enctype="multipart/form-data">
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre">
-    <br><br><br>
+<div class="w3-container w3-blue">
+    <p><b><i><center><h1>Ingreso de pokemones</h1></center></i></b></p>
+</div>
 
-    <label for="tipo">Tipo:</label>
-    <input type="text" name="tipo">
-    <br><br><br>
+<form  method="POST" action="alta.php" enctype="multipart/form-data">
+
+   Nombre: <INPUT TYPE="text" NAME="nombre"><br><br>
+   Tipo:   <INPUT TYPE="text" NAME="tipo"><br><br>
+    Imagen <INPUT TYPE="file" NAME="uploadedfile"><br><br>
 
     <label for="imagen">Imagen:</label>
     <input name="uploadedfile" type="file" />
     <div id="preview"></div>
-    <!--<input id="imagen" name="imagen" size="30" type="file">-->
+   
     <br><br><br>
-    <button type="submit" name="enviar">Guardar</button>
+    <center><button class="w3-btn w3-black" type="submit" name="enviar">Guardar</button></center>
 </form>

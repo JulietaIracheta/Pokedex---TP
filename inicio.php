@@ -2,8 +2,8 @@
 
 session_start();
 
-echo "<p class='descripcion'>Panel de noticias</p>";
-echo "<div class='menu'><a href='alta.php'>Ingresar nuevo pokemon</a></div>";
+echo "<p class='descripcion'><center><h1><i>Panel de pokemones</i></h1></center></p>";
+
 $conexion = mysqli_connect("127.0.0.1","root","46598842","pokemons");
 
 $sql = "SELECT * FROM pokemones";
@@ -11,11 +11,11 @@ $resultado = mysqli_query($conexion,$sql);
 $lista = mysqli_fetch_all($resultado);
 $i=0;
 
-echo "<table>
-              <tr>
-                <td class='nombre'>Nombre</td>
-                <td class='tipo'>Tipo</td>
-                <td class='tipo'>Imagen</td>
+echo "<table class=\"w3-table-all w3-hoverable\"> 
+              <tr class=\"w3-light-grey\">
+                <td class='nombre'><b>Nombre</b></td>
+                <td class='tipo'><b>Tipo</b></td>
+                <td class='tipo'><b>Imagen</b></td>
               </tr>";
 
 while($i < count($lista)) {
@@ -36,9 +36,9 @@ while($i < count($lista)) {
     $i++;
 }
 echo "</table>";
-?>
-
-<button onclick="location.href='salir.php'">Salir</button>
+?><br><br>
+<center><button class="w3-btn w3-black" type="submit" name="altapokemons"><a href='alta.php' >Ingresar nuevo pokemon</button></center><br>
+<center><button class="w3-btn w3-black" onclick="location.href='salir.php'">Salir</button></center>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +47,6 @@ echo "</table>";
     <title>Inicio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
 </head>
 <body>
 
