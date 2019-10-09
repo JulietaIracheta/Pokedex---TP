@@ -1,32 +1,6 @@
-<link rel=StyleSheet href="apc.css" type="text/css" media=screen>
-<script src="/fydt/apc/tinymce/tinymce.min.js"></script>
-<script>
-    tinymce.init({
-        selector: '#mytextarea',
-        width: 600,
-        height: 300,
-        plugins: [
-            'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-            'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-            'save table directionality emoticons template paste'
-        ],
-        content_css: 'css/content.css',
-        toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
-        toolbar2: 'fontselect',
-        font_formats: 'Arial=arial,helvetica,sans-serif; Courier New=courier new,courier,monospace; AkrutiKndPadmini=Akpdmi-n'
-
-    });
-</script>
-
-
 <?php
 $error = "";
 $conexion = mysqli_connect("127.0.0.1","root","46598842","pokemons");
-
-if(!$conexion){
-    echo "ERROR de conexion a la BD";
-    die;
-}
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -37,22 +11,12 @@ if (isset($_GET['id'])) {
     }
     $registro = mysqli_fetch_assoc($resultado);
 }
-
-
-
-
-
-
 else if (isset($_POST['enviar'])){
     $id = $_POST['id'];
     $nombre = $_POST['nombre'];
     $tipo = $_POST['tipo'];
 
-
     if (empty($_FILES['uploadedfile']['name'])){
-        //persiste en la BD
-        /*$sql = "SELECT * FROM noticias WHERE id = '$id'";
-        $resultado = mysqli_query($conexion, $sql);*/
         $sql= "UPDATE pokemones SET nombre='$nombre', tipo='$tipo' where id='$id'";
         $resultado = mysqli_query($conexion,$sql);
         header('location:inicio.php');
@@ -60,8 +24,7 @@ else if (isset($_POST['enviar'])){
             $error = "Error - No se pudieron guardar los datos";
         }
         die;
-    }
-    else{
+    } else{
         $uploadedfileload = "true";
         $msg = "";
         $uploadedfile_size = $_FILES['uploadedfile']['size'];
@@ -92,10 +55,6 @@ else if (isset($_POST['enviar'])){
             echo $msg;
         }
 
-
-        //persiste en la BD
-        /*$sql = "SELECT * FROM noticias WHERE id = '$id'";
-        $resultado = mysqli_query($conexion, $sql);*/
         $sql= "UPDATE pokemones SET imagen='".basename( $_FILES['uploadedfile']['name'])."', nombre='$nombre', tipo='$tipo' where id='$id'";
         $resultado = mysqli_query($conexion,$sql);
         header('location:inicio.php');
@@ -105,11 +64,6 @@ else if (isset($_POST['enviar'])){
         die;
     }
 }
-
-// $sql = "UPDATE agenda SET nombre='$nombre', direccion='$direccion',"."telefono='$telefono', email='$email'";
-
-
-
 echo "<h2>$error</h2>";
 ?>
 
@@ -119,8 +73,6 @@ echo "<h2>$error</h2>";
 <div class="w3-container w3-blue">
     <p><b><i><center><h1>Modificación de pokemones</h1></center></i></b></p>
 </div><br><br>
-
-
 
 <form class="w3-container" method="POST" action="modificar.php" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $registro['id']; ?>">
@@ -134,12 +86,11 @@ echo "<h2>$error</h2>";
 
 
     <label for="imagen"><b><i>Imagen:</i></b></label>
-    <!--   <input class="input-group" type="file" name="user_image" accept="image/*" />   -->
     <input class="w3-input" name="uploadedfile" value=".$registro['imagen']." type="file" />
 
     <?php
     if(empty($registro['imagen'])){
-        echo "La noticia no tiene ninguna imagen asociada";
+            echo "El pokemón no tiene ninguna imagen asociada";
     }
     else{
         $img="<img src='uploads/".$registro['imagen']."' width='150'>";
@@ -149,4 +100,3 @@ echo "<h2>$error</h2>";
     <br>
     <center><button class="w3-btn w3-black" type="submit" name="enviar">Guardar</button></center>
 </form>
-
